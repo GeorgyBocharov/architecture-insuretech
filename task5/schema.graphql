@@ -1,0 +1,28 @@
+type Query {
+    """Аналог GET /clients/{id} — клиент с вложенными документами и родственниками"""
+    client(id: ID!): Client
+}
+
+type Client {
+    id: ID!
+    name: String
+    age: Int
+    relatives: [Relative!]!
+    documents: [Document!]!
+}
+
+type Document {
+    id: ID!
+    type: String
+    number: String
+    issueDate: String
+    expiryDate: String
+}
+
+type Relative {
+    id: ID!
+    relationType: String
+    name: String
+    age: Int
+}
+
